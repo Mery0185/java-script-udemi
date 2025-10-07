@@ -438,48 +438,6 @@
 // const res = convert(500, usdCurr);
 // promotion(res);
 
-// function test() {
-//   for (let i = 0; i < 6; i++) {
-//     console.log(i);
-//     if (i === 5) return;
-//   }
-//   console.log("Done");
-// }
-
-// test();
-// function sayHello(name) {
-//   console.log("Привет, " + name + "!");
-// }
-// sayHello("Антон");
-
-// function returnNumbers(num) {
-//   return [num - 1, num, num + 1];
-// }
-// console.log(returnNumbers(5));
-
-// function getMathResult(num, times) {
-//   if (typeof times !== "number" || times <= 0) {
-//     return num;
-//   }
-
-//   let str = "";
-
-//   for (let i = 1; i <= times; i++) {
-//     if (i === times) {
-//       str += `${num * i}`;
-//       // Тут без черточек в конце
-//     } else {
-//       str += `${num * i}---`;
-//       // Это тоже самое, что и
-//       // str = str + num * i + "---"
-//     }
-//   }
-
-//   return str;
-// }
-
-// console.log(getMathResult(10, 5));
-
 //методы и свойства строки
 
 // str.length // свойства строки
@@ -498,6 +456,9 @@
 
 // console.log(fruit.substr(5, 5)); //тоже, но нам надо во втором значении указать сколько надо вырезать символов
 
+// str.trim() // метод удаляет пробелы и символы сначала и в конце строки
+// const a = prompt(`Один из последних просмотренных фильмов?`, "").trim();
+
 //методы и свойства чисел
 
 // const num = 12.2;
@@ -509,3 +470,328 @@
 // console.log(parseInt(test)); //переведение из другой системы исчисления в число округляя
 
 // console.log(parseFloat(test)); //переведение из другой системы исчисления в число не округляя
+
+// console.log(Math.ceil(4.1)); // 5 округляет до большего числа
+
+// console.log(Math.floor(4.1)); // 4 округляет до меньшего
+
+// console.log(Math.max(1, 7, 68, 3)) // 68 показывает самое большое число
+
+//Callback functions
+
+// function first() {}
+// //Do something
+// setTimeout(function () {
+//   console.log(1);
+// }, 500);
+
+// function second() {
+//   console.log(2);
+// }
+
+// first();
+// second();
+
+// function learnJs(lang, callback) {
+//   console.log(`I learn ${lang}`);
+//   callback();
+// }
+// function done() {
+//   console.log("I comleted this lesson!");
+// }
+
+// learnJs("JavaScript", done);
+
+//  Обьекты
+
+// const obj = new Object(); // так тоже можно создавать объект
+
+// const options = {
+//   name: "test",
+//   width: 1024,
+//   height: 1024,
+//   colors: {
+//     border: "black",
+//     bg: "red",
+//   },
+// };
+
+// console.log(options.colors);
+
+// console.log(Object.keys(options)); // метод создаёт массив и перечисляет ключи
+// console.log(Object.keys(options).length); // метод создаёт массив и перечисляет ключи
+
+// delete options.name; // удалить что-то из объекта
+// console.log(options);
+
+// for (let key in options) {
+//   console.log(`Свойство ${key} имеет значение ${options[key]}`);
+// } //перебираем ключи и значения
+
+// let counter = 0;
+// for (let key in options) {
+//   if (typeof options[key] === "object") {
+//     for (let i in options[key]) {
+//       console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//       // counter++;
+//     }
+//   } else {
+//     console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//     counter++;
+//   }
+// }
+// console.log(counter);
+
+// const options = {
+//   name: "test",
+//   width: 1024,
+//   height: 1024,
+//   colors: {
+//     border: "black",
+//     bg: "red",
+//   },
+//   makeTest: function () {
+//     console.log("Test");
+//   },
+// };
+
+// options.makeTest();
+// console.log(options);
+
+// деструктиризация
+
+// const { border, bg } = options.colors;
+// console.log(border);
+
+// Массивы
+
+// const arr = [1, 62, 83, 996, 108];
+// arr.sort(compareNumber);
+// console.log(arr);
+// // функция отсортирует массив с числами
+// function compareNumber(a, b) {
+//   return a - b;
+// }
+// arr[99] = 0;
+// console.log(arr.length); // 5, length = последний индекс в массиве + 1
+// console.log(arr);
+
+//методы массива
+
+// arr.forEach(function (item, i, arr) {
+//   console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+// arr.pop(); //удаляет последний елемент массива.
+// arr.push(10); // добавляет эллемент в конец
+// console.log(arr);
+
+// чтоб пперебрать элементы массива
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+
+// for (let value of arr) {
+//   console.log(value);
+// }
+
+// const str = prompt("", ""); // создание массива из строки
+// const products = str.split(", ");
+// products.sort(); // сортирует элементы массива как строки
+// console.log(products.join("; ")); // собирает из массива - строку
+
+//Передача по ссылке или по значению, Spread оператор
+
+// let a = 5,
+//   b = a;
+
+// b = b + 5;
+
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//   a: 5,
+//   b: 1,
+// };
+
+// const copy = obj;
+
+// copy.a = 10;
+// console.log(copy);
+// console.log(obj);
+
+// function copy(mainObj) {
+//   let objCopy = {};
+
+//   let key;
+//   for (key in mainObj) {
+//     objCopy[key] = mainObj;
+//   }
+//   return objCopy;
+// }
+
+// const numbers = {
+//   a: 2,
+//   b: 5,
+//   c: {
+//     x: 7,
+//     y: 4,
+//   },
+// };
+
+// const newNumbers = copy(numbers);
+
+// newNumbers.a = 10;
+// newNumbers.c.x = 10;
+// // console.log(newNumbers);
+// // console.log(numbers);
+
+// const add = {
+//   d: 17,
+//   e: 20,
+// };
+
+// const clone = Object.assign({}, add); // создаст копию и добавит к нашему объекту
+// clone.d = 20;
+// console.log(add);
+// console.log(clone);
+
+// const oldArray = ["a", "b", "c"]; // копирование массива
+// const newArray = oldArray.slice();
+
+// newArray[1] = "gggggg";
+// console.log(newArray);
+// console.log(oldArray);
+
+// const video = ["youtube", "vimeo", "rutube"];
+// const blogs = ["wordpress", "livejournal", "blogger"];
+// const internet = [...video, ...blogs, "vk", "facebook"]; //создаёт копии массива
+
+// console.log(internet);
+
+// function log(a, b, c) {
+//   console.log(a);
+//   console.log(b);
+//   console.log(c);
+// }
+
+// const num = [2, 5, 7];
+
+// log(...num);
+
+// const array = ["a", "b"];
+
+// const newAaray = [...array];
+// console.log(newAaray);
+// const q = {
+//   one: 1,
+//   two: 2,
+// };
+
+// const newObj = { ...q, three: 3 }; // копия объекта
+
+// console.log(newObj);
+
+///Прототипно-ориентированное наследие
+
+// let str = "some";
+// let strObj = new String(str);
+
+// console.log(typeof str);
+// console.log(typeof strObj);
+// console.dir([1, 2, 3]);
+
+// const soldier = {
+//   health: 400,
+//   armor: 100,
+//   sayHi: function () {
+//     console.log("Hi");
+//   },
+// };
+
+// const john = Object.create(soldier); // создаём объект который будеи иметь свойства прототипа soldier
+
+// john.__proto__ = soldier; // устаревшее
+// Object.setPrototypeOf(john, soldier); // новый способ установки прототипов
+// john.sayHi();
+
+//Динамическая типизация
+//To String -
+// 1 способ преврвтить в строку
+// console.log(typeof String(null));
+// console.log(typeof String(56));
+
+// //2 конкатинация
+// console.log(typeof (5 + ""));
+
+// const num = 5;
+// console.log("https://vk.com/catalog/" + num);
+
+// const fontSize = 26 + "px";
+// console.log(fontSize);
+// console.log(typeof fontSize);
+
+//To Number
+//1
+// console.log(typeof Number("56"));
+
+// //2
+// console.log(typeof +"string");
+
+// // 3
+// console.log(typeof parseInt("56px", 10));
+
+// let answer = +prompt("Введите свой возраст", "");
+// console.log(answer);
+
+//To boolean
+// false - 0, null, undefined, ''; NaN
+// 1
+// let switcher = null;
+// if (switcher) {
+//   console.log("Work");
+// }
+// switcher = 1;
+// if (switcher) {
+//   console.log("Work");
+// }
+
+// // 2
+
+// console.log(typeof Boolean("56"));
+
+// 3
+
+// console.log(typeof !!"44");
+
+//Замыкание
+
+// let number = 5;
+// debugger;
+
+// function logNumber() {
+//   let number = 4;
+//   debugger;
+//   console.log(number);
+// }
+// number = 6;
+// debugger;
+// logNumber();
+
+function createCounter() {
+  let counter = 0;
+
+  const myFunction = function () {
+    counter = counter + 1;
+    return counter;
+  };
+
+  return myFunction;
+}
+
+const increment = createCounter();
+const c1 = increment();
+const c2 = increment();
+const c3 = increment();
+
+console.log(c1, c2, c3);
