@@ -718,11 +718,13 @@
 //Динамическая типизация
 //To String -
 // 1 способ преврвтить в строку
-// console.log(typeof String(null));
-// console.log(typeof String(56));
+// console.log(typeof String(null)); // string
+// console.log(typeof String(56));// string
 
 // //2 конкатинация
-// console.log(typeof (5 + ""));
+// console.log(typeof (Object + ""));// string
+// console.log(typeof (5 + ""));// string
+// console.log(typeof (null + ""));// string
 
 // const num = 5;
 // console.log("https://vk.com/catalog/" + num);
@@ -778,20 +780,754 @@
 // debugger;
 // logNumber();
 
-function createCounter() {
-  let counter = 0;
+// function createCounter() {
+//   let counter = 0;
 
-  const myFunction = function () {
-    counter = counter + 1;
-    return counter;
-  };
+//   const myFunction = function () {
+//     counter = counter + 1;
+//     return counter;
+//   };
 
-  return myFunction;
-}
+//   return myFunction;
+// }
 
-const increment = createCounter();
-const c1 = increment();
-const c2 = increment();
-const c3 = increment();
+// const increment = createCounter();
+// const c1 = increment();
+// const c2 = increment();
+// const c3 = increment();
 
-console.log(c1, c2, c3);
+// console.log(c1, c2, c3);
+
+// lesson 41 - 42 DOM
+
+// const box = document.getElementById("box");
+
+// console.log(box);
+
+// const btns = document.getElementsByTagName("button");
+
+// console.log(btns[1]);
+
+// const circles = document.getElementsByClassName("circle");
+
+// console.log(circles);
+
+// const hearts = document.querySelectorAll(".heart");
+
+// hearts.forEach((item) => {
+//   console.log(item);
+// });
+
+// const oneHeart = document.querySelector("div");
+
+// console.log(oneHeart);
+
+// const wrapper = document.querySelector(".wrapper");
+
+// box.style.backgroundColor = "#FBDDFD";
+// box.style.width = "500px";
+
+// btns[1].style.borderRadius = "20%";
+
+// circles[0].style.backgroundColor = "violet";
+
+// box.style.cssText = "background-color: violet; width: 500px";
+
+// for (let i = 0; i < hearts.length; i++) {
+//   hearts[i].style.backgroundColor = "yellow";
+// }
+// hearts.forEach((item) => {
+//   item.style.backgroundColor = "black";
+// });
+
+// const div = document.createElement("div");
+// div.classList.add("black");
+// wrapper.append(div);
+// // document.body.append(div); помещает в конец
+
+// document.querySelector(".wrapper").append(div);
+
+// wrapper.prepend(div); // помещает в начало
+
+// wrapper.insertBefore(div, hearts[1]);
+
+// hearts[0].before(div);
+
+// document.body.appendChild(div);
+
+// circles[0].remove();
+// wrapper.removeChild(hearts[1]);
+
+// hearts[1].replaceWith(circles[0]);
+// wrapper.replaceChild(circles[0], hearts[0]);
+
+// div.innerHTML = "Hello";
+// div.innerHTML = "<h1>Hello world</h1>";
+// div.textContent = "I am happy";
+
+// div.insertAdjacentHTML("afterend", "<h1>Hi!</h1>");
+// const text = document.createTextNode("I am happy");
+
+// div.style.color = "white"; // цвет текста
+// div.style.backgroundColor = "pink"; // фон
+// div.style.padding = "20px"; // внутренние отступы
+// div.style.borderRadius = "10px"; // скруглённые углы
+// div.style.fontSize = "24px"; // размер шрифта
+// div.style.textAlign = "center"; // выравнивание по центру
+// div.style.marginTop = "40px"; // отступ сверху
+// div.style.width = "200px"; // ширина блока
+// div.style.marginInline = "auto"; // центрирование по горизонтали
+
+//Рекурсия
+
+// function pow(x, n) {
+//   let result = 1;
+
+//   for (let i = 0; i < n; i++) {
+//     result *= x; //(result = x * result)
+//   }
+//   return result;
+// }
+
+// function pow(x, n) {
+//   if (n === 1) {
+//     return x;
+//   } else {
+//     return x * pow(x, n - 1);
+//   }
+// }
+// pow(2, 2); // 4
+// pow(2, 3); // 4
+// pow(2, 4); // 16
+
+// let students = {
+//   js: [
+//     {
+//       name: "John",
+//       progress: 100,
+//     },
+//     {
+//       name: "Ivan",
+//       progress: 60,
+//     },
+//   ],
+
+//   html: {
+//     basic: [
+//       {
+//         name: "Peter",
+//         progress: 20,
+//       },
+//       {
+//         name: "Ann",
+//         progress: 18,
+//       },
+//     ],
+
+//     pro: [
+//       {
+//         name: "Sam",
+//         progress: 10,
+//       },
+//     ],
+//     semi: {
+//       students: [
+//         {
+//           name: "Test",
+//           progress: 100,
+//         },
+//       ],
+//     },
+//   },
+// };
+
+// function getTotalProgress(data) {
+//   let total = 0;
+//   let students = 0;
+
+//   for (let course of Object.values(data)) {
+//     if (Array.isArray(course)) {
+//       students += course.length;
+
+//       for (let i = 0; i < course.length; i++) {
+//         total += course[i].progress;
+//       }
+//     } else {
+//       for (let subCourse of Object.values(course)) {
+//         students += subCourse.length;
+
+//         for (let i = 0; i < subCourse.length; i++) {
+//           total += subCourse[i].progress;
+//         }
+//       }
+//     }
+//   }
+
+//   return total / students;
+// }
+
+// console.log(getTotalProgress(students));
+
+// function getTotalProgressByRecurcion(data) {
+//   if (Array.isArray(data)) {
+//     let total = 0;
+
+//     for (let i = 0; i < data.length; i++) {
+//       total += data[i].progress;
+//     }
+
+//     return [total, data.length];
+//   } else {
+//     let total = [0, 0];
+
+//     for (let subData of Object.values(data)) {
+//       const subDataArr = getTotalProgressByRecurcion(subData);
+//       total[0] += subDataArr[0];
+//       total[1] += subDataArr[1];
+//     }
+//     return total;
+//   }
+// }
+
+// const result = getTotalProgressByRecurcion(students);
+
+// console.log(result[0] / result[1]);
+
+//mobile vertion
+
+// touchstart - мобильное событие при клике
+// touchmove - косание и движение
+// touchend - убираем палец и выполнилось событие
+// touchenter - когда зашел на элемент с событием
+// touchleave - когда ушел за пределы элемента
+// touchcancel - палец вышел за пределы браузера
+//touches - список всех пальцев которые сейчас взаимодействуют с экраном
+//targetTouches - все пальци которые взаимодействуют с этии конкретно элементом
+//changedTouches - список пальцев которые взаимодействуют с этии конкретно элементом
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   const box = document.querySelector(".box");
+
+//   box.addEventListener("touchstart", (e) => {
+//     e.preventDefault();
+
+//     console.log("Start");
+//     // console.log(e.touches);
+//     console.log(e.targetTouches);
+//   });
+//   // box.addEventListener("touchmove", (e) => {
+//   //   e.preventDefault();
+
+//   //   console.log("Move");
+//   // });
+//   // box.addEventListener("touchend", (e) => {
+//   //   e.preventDefault();
+
+//   //   console.log("End");
+//   // });
+// });
+
+// defer, async - отложенные скрипты
+
+// const p = document.querySelectorAll("p");
+// console.log(p);
+
+// const script = document.createElement("script");
+// script.src = "js/script.js";
+// document.body.append(script);
+
+// Symbol
+// const obj = {
+//   name: "Test",
+// };
+// let id = Symbol("id");
+// obj[id] = 1;
+// console.log(obj);
+// console.log(obj["id"]);
+
+//Дескрипторы свойств
+
+//writable - если он стоит в позиции true - то свойства можно изменить, если false - то только для чтения.
+//enumerable - если это свойство true - то свойства будут перечисляться в циклах, если нет - но циклы будут его игнорировать.
+//configurable -  если это свойство true - то свойства можно удалить, а атрибуты изменить, иначе делать этого нельзя.
+
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   birthday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+// Object.defineProperty(user, "birthday", {
+//   value: prompt("Date?"),
+//   writable: false,
+//   enumerable: true,
+//   configurable: true,
+// });
+// // user.birthday = "16.01.1985";
+// console.log(Object.getOwnPropertyDescriptor(Math, "PI"));
+// Object.defineProperty(user, "showMyPublicData", { enumerable: false });
+// for (let key in user) console.log(key);
+
+// Object.defineProperties(user, {
+//   name: { writable: false },
+//   surname: { writable: false },
+// });
+// Object.defineProperty(user, "name", { writable: false });
+// Object.defineProperty(user, "gender", { value: "male" });
+// console.log(Object.getOwnPropertyDescriptor(user, "gender"));
+
+//Полезные методы объектов
+//Object.is - определяет являются ли два значения разлечимыми(одинаковыми)
+//Object.preventExtensions() - предотвращает расширение объектов
+//Object.seal() - предотвращает удаление свойств объекта другим кодом
+//Object.freeze() - замораживает объект, другой код не сможет удалить или изменить объект
+
+//Проверяющие методы
+
+//Object.isExtensible() - определяет разрешено ли расширение
+//Object.isFrozen() - определяет был ли объект заморожен
+//Object.isSealed() - определяет является ли объект запечатан
+
+//Object.keys() - возвращает массив из собственных ключей объекта
+//Массивоподобный объект:
+// var obj = {
+//   0: "a",
+//   1: "b",
+//   2: "c",
+// };
+// console.log(Object.keys(obj)); [0, 1, 2]
+
+//Object.values() - возвращает массив из собственных значений свойств объекта
+
+// const object1 = {
+//   a: "somestring",
+//   b: 42,
+//   c: false,
+// };
+
+// console.log(Object.values(object1));
+// // ["somestring", 42, false]
+
+//Object.entries() - метод возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value]
+
+// var obj = {
+//   0: "a",
+//   1: "b",
+//   2: "c",
+// };
+// console.log(Object.entries(obj)); // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
+
+//Итерируемые конструкции - те которые могут быть перебраны с помощью for of (те которые содержат Symbol.iterator)
+
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   birthday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+
+// for (const key in user) {
+//   console.log(user[key]);
+// }
+
+// // const arr = ["b", "a", "c"];
+
+// // for (const key in arr) {
+// //   console.log(arr[key]);
+// // }
+
+// const str = "string";
+
+// for (const key in str) {
+//   console.log(str[key]);
+// }
+
+// const arr = ["b", "a", "c"];
+
+// // for (const key of arr) {
+// //   console.log(key);
+// // }
+
+// Array.prototype.someMethod = function () {};
+// console.dir(arr);
+// for (const key of arr) {
+//   console.log(key);
+// }
+
+// const salar = {
+//   john: 500,
+//   ivan: 1000,
+//   ann: 5000,
+//   sayHi: function () {
+//     console.log("Hi");
+//   },
+// };
+
+// salar[Symbol.iterator] = function () {
+//   return {
+//     current: this.john,
+//     last: this.ann,
+//     next() {
+//       if (this.current < this.last) {
+//         this.current = this.current + 500;
+//         return { done: false, value: this.current };
+//       } else {
+//         return { done: true };
+//       }
+//       // {done: true, value: 123}
+//     },
+//   };
+// };
+
+// const iterator = salar[Symbol.iterator]();
+// console.log(iterator.next());
+// for (let res of salar) {
+//   console.log(res);
+// }
+
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   birthday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+// console.log(typeof Object.keys(user)[0]);
+
+//чтоб перевести в формат карты
+
+// const userMap = new Map(Object.entries(user));
+// // console.log(userMap);
+
+// const newUserObj = Object.fromEntries(userMap);
+// console.log(newUserObj);
+
+// const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
+
+// //Map - называется специфические структуры данных, свойствами которых могут быть и объекты и масив и функция итд
+// const budget = [5000, 15000, 2500];
+// const map = new Map([[{ paper: 400 }, 8000]]);
+
+// shops.forEach((shop, i) => {
+//   map.set(shop, budget[i]);
+// });
+// map.set(shops[0], 5000);
+// map.set(shops[1], 25000);
+// map.set(shops[2], 15000);
+
+// console.log(map.get(shops[0])); //берём
+// console.log(map.has(shops[0])); //проверяем
+// map.delete(key); //удаляет что-то из карты
+// map.clear(); //очистить нашу карту
+// map.size(); //количество елементов внутри карты
+// console.log(map);
+//методы Map
+
+// map.keys(); // возвращаеи итерируемый объект по ключам
+// console.log(map.keys());
+// for (let shop of map.keys()) {
+//   console.log(shop);
+// }
+
+// const goods = [];
+// for (let shop of map.keys()) {
+//   goods.push(Object.keys(shop)[0]);
+// }
+// console.log(goods);
+
+// for (let price of map.values()) {
+//   console.log(price);
+// }
+
+// for (let price of map.entries()) {
+//   console.log(price);
+// }
+
+// for (let [shop, price] of map.entries()) {
+//   console.log(price, shop);
+// }
+
+// map.forEach((value, key, map) => {
+//   console.log(key, value);
+// });
+
+//Set - особый вид коллекций по типу массива, где каждое значение может повторятся один раз.
+
+// const arr = ["Alex", "Lena", "Sweta", "Toma", "Alex"];
+
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
+
+// console.log(unique(arr));
+
+// const set = new Set(arr);
+// console.log(set);
+// set.add("Oleg"); //добавить
+// set.delete(value); //удалить
+// set.has("Lena"); //проверить
+// set.clear(); //очистить
+// set.size;// размер
+
+// for (let value of set) console.log(value);
+// set.forEach((value, valueAgaing, set) => {
+//   console.log(value, valueAgaing);
+// });
+// console.log(set.values());
+// console.log(set.keys());
+// console.log(set.entries());
+
+//BigInt
+
+// const bigint = 43484587587647634236428675845673845959n;
+
+// const sameBigint = BigInt(43484587587647634236428675845673845959);
+
+// // console.log(typeof bigint);
+
+// let bigint = 1n;
+// let number = 2;
+// console.log(bigint + BigInt(number));
+// console.log(Number(bigint) + number);
+
+// const timerId = setTimeout(function () {
+//   console.log("Hello");
+// }, 2000);
+
+// const timerId2 = setTimeout(logger, 2500);
+
+// clearInterval(timerId2);
+
+// const btn = document.querySelector(".btn");
+// let timerId,
+//   i = 0;
+
+// function myAnimation() {
+//   const elem = document.querySelector(".box");
+//   let pos = 0;
+
+//   const id = setInterval(frame, 10);
+//   function frame() {
+//     if (pos == 300) {
+//       clearInterval(id);
+//     } else {
+//       pos++;
+//       elem.style.top = pos + "px";
+//       elem.style.left = pos + "px";
+//     }
+//   }
+// }
+
+// btn.addEventListener("click", myAnimation);
+// btn.addEventListener("click", () => {
+//   //   const timerId = setTimeout(logger, 2500);
+//   timerId = setInterval(logger, 500);
+// });
+
+// function logger() {
+//   if (i === 3) {
+//     clearInterval(timerId);
+//   }
+//   console.log("text");
+//   i++;
+// }
+
+// let id = setTimeout(function log() {
+//   console.log("Hello");
+//   id = setTimeout(log, 500);
+// }, 500);
+
+//Weakset - динамическая структура которая может очищатся только сборщиком мусора
+// у него есть только add, has, delete
+
+// let messages = [
+//   { text: "Hello", from: "John" },
+//   { text: "World", from: "Alex" },
+//   { text: "Good bay", from: "Mery" },
+// ];
+
+// let readMessages = new WeakSet();
+
+// readMessages.add(messages[0]);
+// // readMessages.add(messages[1]);
+
+// readMessages.add(messages[0]);
+// messages.shift();
+// console.log(readMessages.has(messages[0]));
+
+//DATA
+
+// const now = new Date();
+// new Date.parse("2026 - 01 - 09");
+// console.log(now);
+
+//методы чтоб получить дату
+
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+// console.log(now.getDate());
+// console.log(now.getHours());
+// console.log(now.getMinutes());
+// console.log(now.getSeconds());
+// console.log(now.getDay());
+// console.log(now.getUTCHours());
+
+// console.log(now.getTimezoneOffset()); // разница между часовым временем и UTC
+// console.log(now.getTime()); // сколько времени в милисек с 1970г прошло до сегодня?
+
+//методы чтоб получить дату
+
+// console.log(now.setHours(18, 40));
+// console.log(now);
+
+// let start = new Date();
+
+// for (let i = 0; i < 1000000; i++) {
+//   let some = i ** 3;
+// }
+// let end = new Date();
+
+// alert(`Цикл отработал за ${end - start} миллисекунд`);
+
+// 74 Функции конструкторы
+
+// function User(name, id) {
+//   this.name = name;
+//   this.id = id;
+//   this.human = true;
+//   this.hello = function () {
+//     console.log(`Hello ${this.name}`);
+//   };
+// }
+
+// User.prototype.exit = function () {
+//   console.log(`Пользователь ${this.name} ушел`);
+// };
+
+// const ivan = new User("Ivan", 28);
+// const alex = new User("Alex", 23);
+
+// ivan.exit();
+// ivan.hello();
+// alex.hello();
+// console.log(ivan);
+// console.log(alex);
+
+// 75 контекст вызова функции this - то что окружает функцию и в каких условиях она вызывется
+// 4 способа когда меняется контекст:
+// function showThis(a, b) {
+//   console.log(this);
+//   function sum() {
+//     console.log(this);
+//     return a + b;
+//   }
+//   console.log(sum());
+// }
+// showThis(4, 5);
+
+// 1) Обычная функция - this = window (если use strict - undefined)
+
+// const obj = {
+//   a: 20,
+//   b: 15,
+//   sum: function () {
+//     console.log(this);
+//   },
+// };
+// obj.sum();
+// //2) Контекст у методов объектов - сам объект
+
+// function User(name, id) {
+//   this.name = name;
+//   this.id = id;
+//   this.human = true;
+// }
+//3) this в конструкторах и классах - новый экземпляр объекта
+
+// function sayName(surname) {
+//   console.log(this);
+//   console.log(this.name + surname);
+// }
+
+// const user = {
+//   name: "John",
+// };
+
+// sayName.call(user, " Smith");
+// sayName.apply(user, [" Bush"]);
+
+// function count(num) {
+//   return this * num;
+// }
+
+// const double = count.bind(2);
+// console.log(double(3));
+// console.log(double(13));
+
+// // 4) Ручная привязка this: call, apply, bind
+
+// const btn = document.querySelector("button");
+// btn.addEventListener("click", function () {
+//   // console.log(this);
+//   this.style.backgroundColor = "red";
+// });
+
+// const obj = {
+//   num: 5,
+//   sayNumber: function () {
+//     const say = () => {
+//       console.log(this.num);
+//     };
+
+//     say();
+//   },
+// };
+
+// obj.sayNumber();
+
+// const double = (a) => a * 2;
+// console.log(double(2));
+
+// 76 Классы
+
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height;
+//     this.width = width;
+//   }
+
+//   calcArea() {
+//     return this.height * this.width;
+//   }
+// }
+
+// class ColoredRectangleWithText extends Rectangle {
+//   constructor(height, width, text, bgColor) {
+//     super(height, width);
+//     this.text = text;
+//     this.bgColor = bgColor;
+//   }
+
+//   showMyProps() {
+//     console.log(`Текст: ${this.text}, цвет ${this.bgColor}`);
+//   }
+// }
+
+// const div = new ColoredRectangleWithText(25, 10, "World", "blue");
+// div.showMyProps();
+// console.log(div.calcArea());
+
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(20, 100);
+
+// console.log(square.calcArea());
+// console.log(long.calcArea());
+
+// Принципы объектно-ориентированного програмирования:
+// 1) Абстракция - когда мы отделяем концепцию от экземпляра.
+// 2) Наследование - способность объекта или класа базироваться на другом объекте или классе.

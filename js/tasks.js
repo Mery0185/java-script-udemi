@@ -338,3 +338,146 @@
 // }
 
 // console.log(isBudgetEnough(shoppingMallData));
+
+// function thirdTask() {
+//   // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+//   const data = [5, 10, "Shopping", 20, "Homework"];
+//   const result = [];
+
+//   for (let i = 0; i < data.length; i++) {
+//     result[i] = data[data.length - 1 - i];
+//   }
+
+//   console.log(result);
+//   return result;
+// }
+// thirdTask();
+
+// const arr = [1, 16, 1985, 2025];
+// arr.push(2007, 2014);
+
+// arr.forEach(function (item, i, arr) {
+//   console.log(`${i}: ${item} - находится в массиве ${arr}`);
+// });
+// console.log(arr.length);
+
+// for (let value of arr) {
+//   console.log(value);
+// }
+
+// задачи на собеседование
+
+// let x = 5;
+// alert(++x); // 5
+
+// console.log([] + false - null + true); // NaN
+
+// let y = 1;
+// let x = (y = 2);
+// alert(x); // 2
+
+// console.log ([] + 1 + 2); // 12
+
+// alert("1"[0]); // 1
+
+// console.log(2 && 1 && null && 0 && undefined); // null, && - запинается на лжи, || - запинается на правде
+
+// console.log(!!(1 && 2) === (1 && 2));
+
+// alert(null || (2 && 3) || 4); //3
+
+// const a = [1, 2, 3];
+// const b = [1, 2, 3];
+// console.log(a == b);
+
+// alert(+"Infinity");
+
+// console.log("Ёжик" > "яблоко");
+
+// console.log(0 || "" || 2 || undefined || true || falsе);
+
+// const restorantData = {
+//   menu: [
+//     {
+//       name: "Salad Caesar",
+//       price: "14$",
+//     },
+//     {
+//       name: "Pizza Diavola",
+//       price: "9$",
+//     },
+//     {
+//       name: "Beefsteak",
+//       price: "17$",
+//     },
+//     {
+//       name: "Napoleon",
+//       price: "7$",
+//     },
+//   ],
+//   waitors: [
+//     { name: "Alice", age: 22 },
+//     { name: "John", age: 24 },
+//   ],
+//   averageLunchPrice: "20$",
+//   openNow: true,
+// };
+
+// function isOpen(prop) {
+//   let answer = "";
+//   prop ? (answer = "Открыто") : (answer = "Закрыто");
+
+//   return answer;
+// }
+
+// console.log(isOpen(restorantData.openNow));
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//   if (
+//     +fDish.price.slice(0, -1) + +sDish.price.slice(0, -1) <
+//     +average.slice(0, -1)
+//   ) {
+//     return "Цена ниже средней";
+//   } else {
+//     return "Цена выше средней";
+//   }
+// }
+
+// console.log(
+//   isAverageLunchPriceTrue(
+//     restorantData.menu[0],
+//     restorantData.menu[1],
+//     restorantData.averageLunchPrice
+//   )
+// );
+
+// function transferWaitors(data) {
+//   const copy = Object.assign({}, data);
+
+//   // Нам просто нужно менять весь массив данных,
+//   // а не лезть напрямую менять каждого из сотрудников
+//   // Так как это верхний уровень объекта, то значение
+//   // будет меняться только у копии
+//   copy.waitors = [{ name: "Mike", age: 32 }];
+//   return copy;
+// }
+
+// transferWaitors(restorantData);
+
+// factorial
+
+// function factorial(n) {
+//   if (typeof n !== "number" || !Number.isInteger) {
+//     return "Ошибка, проверьте данные";
+//   }
+//   if (n >= 1) {
+//     return n * factorial(n - 1);
+//   } else {
+//     return 1;
+//   }
+// }
+
+// // factorial(5);
+// console.log(factorial(5));
+
+fnk;
