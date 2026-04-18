@@ -1531,3 +1531,176 @@
 // Принципы объектно-ориентированного програмирования:
 // 1) Абстракция - когда мы отделяем концепцию от экземпляра.
 // 2) Наследование - способность объекта или класа базироваться на другом объекте или классе.
+
+//79 REST операторы
+
+// const log = function (a, b, ...rest) {
+//   console.log(a, b, rest);
+// };
+
+// log("basic", "rest", "operator", "usage");
+
+// function calcOrDouble(number, basis = 4) {
+//   //   basis = basis || 2;
+//   console.log(number * basis);
+// }
+
+// calcOrDouble(3);
+
+// 80 ЛОКАЛЬНЫЙ СЕРВЕР
+
+//get запрос - мы запрашиваем информацию в google
+//post запрос - мы заполням данные и отправляем для обработки на сайте
+
+// 81 JSON
+
+// const persone = {
+//   name: "Alex",
+//   tel: "+0662076091",
+//   parents: {
+//     mom: "Olga",
+//     dad: "Mike",
+//   },
+// };
+
+// // console.log(JSON.stringify(persone)); // в базу данних отправляем
+// // console.log(JSON.parse(JSON.stringify(persone))); // из базы данних получаем
+
+// const clone = JSON.parse(JSON.stringify(persone));
+// clone.parents.mom = "Ann";
+// console.log(persone);
+// console.log(clone);
+
+// 82 AJAX
+
+// const inputRub = document.querySelector("#rub");
+// const inputUsd = document.querySelector("#usd");
+
+// inputRub.addEventListener("input", () => {
+//   const request = new XMLHttpRequest();
+
+//   // inputUsd.addEventListener("input", () => {
+//   //   const request = new XMLHttpRequest();
+
+//   // request.open(method, url, async, login, pass); // собирает настройки для запроса
+//   request.open("GET", "js/current.json");
+//   request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+//   request.send();
+
+//   request.addEventListener("load", () => {
+//     if (request.status === 200) {
+//       const data = JSON.parse(request.response);
+//       inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+//     } else {
+//       inputUsd.value = "Что-то пошло не так";
+//     }
+//   });
+
+//   // status
+//   // statusText
+//   // response
+//   // readyState
+// });
+
+// PROMIS
+
+// console.log("Запрос данных ...");
+
+// const req = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("Подготовка данных ...");
+
+//     const product = {
+//       name: "TV",
+//       price: 2000,
+//     };
+
+//     resolve(product);
+//   }, 2000);
+// });
+
+// req
+//   .then((product) => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         product.status = "order";
+//         resolve(product);
+//       }, 2000);
+//     });
+//   })
+//   .then((data) => {
+//     data.modify = true;
+//     return data;
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch(() => {
+//     console.error("Произошла ошибка");
+//   })
+//   .finally(() => {
+//     console.log("Finally");
+//   });
+
+// const test = (time) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => resolve(), time);
+//   });
+// };
+
+// // test(1000).then(() => console.log("1000 ms"));
+// // test(2000).then(() => console.log("2000 ms"));
+
+// // Promise.all([test(1000), test(2000)]).then(() => {
+// //   console.log("All");
+// // });
+
+// Promise.race([test(1000), test(2000)]).then(() => {
+//   console.log("All");
+// });
+
+//API
+// DOM API
+
+// Методы перебора массивов
+
+// 1. filter
+
+// const names = ["Ivan", "Ann", "Ksenia", "Vladimir"];
+
+// const shortNames = names.filter(function (name) {
+//   return name.length < 5;
+// });
+
+// console.log(shortNames);
+
+// 2. map
+
+// const answer = ["IvaN", "AnnA", "Hello"];
+
+// const result = answer.map((item) => item.toLocaleLowerCase());
+
+// console.log(result);
+
+// let answer = ["IvaN", "AnnA", "Hello"];
+
+// answer = answer.map((item) => item.toLocaleLowerCase());
+
+// console.log(answer);
+
+// 3. every/some
+
+// const something = [4, "sell", "rtdhgdr6"];
+
+// // console.log(something.some((item) => typeof item === "number"));
+
+// console.log(something.every((item) => typeof item === "number"));
+
+// reduce
+
+const arr = [4, 5, 8, 1, 3, 7];
+
+const res = arr.reduce((sum, current) => sum + current);
+
+console.log(res);
+console.log(arr);
