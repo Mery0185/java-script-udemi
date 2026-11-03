@@ -1,0 +1,191 @@
+{
+  "menu": [
+    {
+      "img": "img/tabs/vegy.jpg",
+      "altimg": "vegy",
+      "title": "Меню 'Фитнес'",
+      "descr": "Меню 'Фитнес' - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!",
+      "price": 9,
+      "id": "Brf6e-e609k"
+    },
+    {
+      "img": "img/tabs/post.jpg",
+      "altimg": "post",
+      "title": "Меню 'Постное'",
+      "descr": "Меню 'Постное' - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.",
+      "price": 14,
+      "id": "r_7UlrQWonM"
+    },
+    {
+      "img": "img/tabs/elite.jpg",
+      "altimg": "elite",
+      "title": "Меню 'Премиум'",
+      "descr": "В меню 'Премиум' мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!",
+      "price": 21,
+      "id": "vJXo9I3a6IE"
+    }
+  ],
+  "requests": [
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "-S53l3wq3Oc"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "8QST2rercOg"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "_Rp-Z4eWLEA"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "qsIJYLBL_GA"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "fuJegCp8hXA"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "BqlZ88g5RGY"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "WRu0XpROWEs"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "uCKEUaJli5c"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "5Qbx_r64sPI"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "ppaDGbXu68Y"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "8YX9IGhlJFE"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "n5ABSFxnDDM"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "WLCZTxa1eq4"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "c7mdFAypPxY"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "3RH1ci9yRJ8"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "sXz0HfAAinw"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "hfYgiEih-BQ"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "pJwK1jJlgiQ"
+    },
+    {
+      "name": "Mariia",
+      "phone": "435235",
+      "id": "POE5r9mX6YA"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "_kR-48Hgflg"
+    },
+    {
+      "name": "User",
+      "phone": "4563463457",
+      "id": "0fa12zph3LE"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "Z4xl9HdwCGM"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "dEyv0aQEZnE"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "EFmWyOlh-Bk"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "sV7bfJ1yxGA"
+    },
+    {
+      "name": "Mariia",
+      "phone": "435235",
+      "id": "1_f4bJfxGFk"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "e-hEII3u3l0"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "N2MQaMtw8sI"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "cmgn58Rv1v8"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "5t4_w5X4PWc"
+    },
+    {
+      "name": "Mariia",
+      "phone": "4563463457",
+      "id": "pG1aq9bwT0g"
+    },
+    {
+      "name": "Mariia",
+      "phone": "435235",
+      "id": "P421vKfR7Pg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

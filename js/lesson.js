@@ -1573,34 +1573,36 @@
 
 // 82 AJAX
 
-// const inputRub = document.querySelector("#rub");
-// const inputUsd = document.querySelector("#usd");
+const inputRub = document.querySelector("#rub");
+const inputUsd = document.querySelector("#usd");
 
-// inputRub.addEventListener("input", () => {
-//   const request = new XMLHttpRequest();
+inputRub.addEventListener("input", () => {
+  const request = new XMLHttpRequest();
 
-//   // inputUsd.addEventListener("input", () => {
-//   //   const request = new XMLHttpRequest();
+  inputUsd.addEventListener("input", () => {
+    const request = new XMLHttpRequest();
 
-//   // request.open(method, url, async, login, pass); // собирает настройки для запроса
-//   request.open("GET", "js/current.json");
-//   request.setRequestHeader("Content-type", "application/json; charset=utf-8");
-//   request.send();
+    //     request.open(method, url, async, login, pass);
+    // // собирает настройки для запроса
+    request.open("GET", "js/current.json");
 
-//   request.addEventListener("load", () => {
-//     if (request.status === 200) {
-//       const data = JSON.parse(request.response);
-//       inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-//     } else {
-//       inputUsd.value = "Что-то пошло не так";
-//     }
-//   });
+    request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    request.send();
+  });
+  request.addEventListener("load", () => {
+    if (request.status === 200) {
+      const data = JSON.parse(request.response);
+      inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2); // сокращаем до 2 знаков после точки
+    } else {
+      inputUsd.value = "Что-то пошло не так";
+    }
+  });
 
-//   // status
-//   // statusText
-//   // response
-//   // readyState
-// });
+  // status
+  // statusText
+  // response
+  // readyState
+});
 
 // PROMIS
 
@@ -1648,12 +1650,12 @@
 //   });
 // };
 
-// // test(1000).then(() => console.log("1000 ms"));
-// // test(2000).then(() => console.log("2000 ms"));
+// test(1000).then(() => console.log("1000 ms"));
+// test(2000).then(() => console.log("2000 ms"));
 
-// // Promise.all([test(1000), test(2000)]).then(() => {
-// //   console.log("All");
-// // });
+// Promise.all([test(1000), test(2000)]).then(() => {
+//   console.log("All");
+// });
 
 // Promise.race([test(1000), test(2000)]).then(() => {
 //   console.log("All");
@@ -1674,11 +1676,11 @@
 
 // console.log(shortNames);
 
-// 2. map
+// 2. map - берем элементы и меняем их внутри массива
 
 // const answer = ["IvaN", "AnnA", "Hello"];
 
-// const result = answer.map((item) => item.toLocaleLowerCase());
+// const result = answer.map((item) => item.toLowerCase());
 
 // console.log(result);
 
@@ -1688,19 +1690,104 @@
 
 // console.log(answer);
 
-// 3. every/some
+// 3. every/some - возвращает булиновое значение есть ли там или нет
 
 // const something = [4, "sell", "rtdhgdr6"];
 
-// // console.log(something.some((item) => typeof item === "number"));
+// // console.log(something.some((item) => typeof item === "number")); - хоть бы один елемент
 
-// console.log(something.every((item) => typeof item === "number"));
+// console.log(something.every((item) => typeof item === "number")); - если все елементы
 
-// reduce
+// reduce - чтоб собирать массив в одно целое
 
-const arr = [4, 5, 8, 1, 3, 7];
+// const arr = [4, 5, 8, 1, 3, 7];
 
-const res = arr.reduce((sum, current) => sum + current);
+// const res = arr.reduce((sum, current) => sum + current); sum - это сумма первого и второго и т д , current - это число по порядку в массиве (0 + 4; 4 + 5; 9 + 8 ...)
 
-console.log(res);
-console.log(arr);
+// console.log(res); // 28
+// console.log(arr);
+
+// const arr = ["apple", "pear", "plum"];
+
+// arr.forEach((item) => {
+//   console.log(item); // apple pear plum
+// });
+
+// // const res = arr.reduce((sum, current) => `${sum}, ${current}`);
+// // console.log(res) // apple, pear, plum
+
+// const arr1 = [4, 5, 8, 1, 3, 7];
+// const res = arr1.reduce((sum, current) => sum + current, 2); // может принимать начальное значение 2
+// console.log(res); // 30
+
+const obj = {
+  ivan: "persone",
+  anne: "persone",
+  cat: "animal",
+  dog: "animal",
+};
+
+const newArr = Object.entries(obj)
+  .filter((item) => item[1] === "persone")
+  .map((item) => item[0]);
+console.log(newArr);
+
+const films = [
+  {
+    name: "Titanic",
+    rating: 9,
+  },
+  {
+    name: "Die hard 5",
+    rating: 5,
+  },
+  {
+    name: "Matrix",
+    rating: 8,
+  },
+  {
+    name: "Some bad film",
+    rating: 4,
+  },
+];
+
+function showListOfFilms(arr) {
+  return arr.map((film, i) => {
+    film.id = i;
+    return film;
+  });
+}
+console.log(showListOfFilms(films));
+
+function showGoodFilms(arr) {
+  const newRating = arr.filter((item) => {
+    return item.rating >= 8;
+  });
+  return newRating;
+}
+
+console.log(showGoodFilms(films));
+
+const funds = [
+  { amount: -1400 },
+  { amount: 2400 },
+  { amount: -1000 },
+  { amount: 500 },
+  { amount: 10400 },
+  { amount: -11400 },
+];
+
+const getPositiveIncomeAmount = (data) => {
+  return data
+    .filter((item) => item.amount > 0)
+    .reduce((sum, curr) => sum + curr.amount, 0);
+};
+console.log(getPositiveIncomeAmount(funds));
+
+const getTotalIncomeAmount = (data) => {
+  return data.some((item) => item.amount < 0)
+    ? data.reduce((sum, curr) => sum + curr.amount, 0)
+    : getPositiveIncomeAmount(data);
+};
+getTotalIncomeAmount(funds);
+console.log(getTotalIncomeAmount(funds));
