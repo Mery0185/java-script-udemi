@@ -17,6 +17,8 @@
   "homepage": "https://github.com/Mery0185/java-script-udemi#readme",
   "description": "",
   "devDependencies": {
-    "json-server": "^1.0.0-beta.15"
+    "json-server": "^1.0.0-beta.15",
+    "webpack": "^5.112.2",
+    "webpack-cli": "^7.3.1"
   }
 }

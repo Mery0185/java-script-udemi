@@ -1,0 +1,29 @@
+{
+  "name": "food_dist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "> 1%"
+  ],
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/cli": "^8.1.0",
+    "@babel/core": "^8.1.0",
+    "@babel/preset-env": "^8.0.7",
+    "babel-loader": "^10.1.1",
+    "core-js": "^3.51.0",
+    "webpack": "^5.112.2",
+    "webpack-cli": "^7.3.1"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.8",
+    "nodelist-foreach-polyfill": "^1.2.0"
+  }
+}
